@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>LLM Personal Proofreader</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1>LLM Personal Proofreader</h1>
+    </header>
+    <main>
+        <section class="description">
+            <p>LLM Personal Proofreader is a web application that allows you to type or paste in your content and
+                get corrected copy back.</p>
+        </section>
+        <menu class="tabs">
+            <ul>
+                <li><a href="#single-line" class="active">Single Line</a></li>
+                <li><a href="#multi-line">Multi Line</a></li>
+            </ul>
+        </menu>
+        <section id="single-line" class="tab-content active">
+            <form class="content-form">
+                <label for="content-input">Content:</label>
+                <input type="text" name="content" class="content" id="content-input" cols="30" rows="10"
+                    autocomplete="off"></textarea>
+                <input type="submit" value="Submit">
+            </form>
+        </section>
+        <section id="multi-line" class="tab-content">
+            <form class="content-form">
+                <label for="content-textarea">Content:</label>
+                <textarea name="content" class="content" id="content-textarea" cols="30" rows="10"></textarea>
+                <input type="submit" value="Submit">
+            </form>
+        </section>
+
+        <section class="results">
+            <form id="response-form">
+                <label for="content">Results:</label>
+                <textarea name="results" id="results" cols="30" rows="10" disabled></textarea>
+                <button type="button" id="copy">
+                    <svg fill="#000000" height="1em" width="1em" viewBox="0 0 330 330">
+                        <g>
+                            <path d="M35,270h45v45c0,8.284,6.716,15,15,15h200c8.284,0,15-6.716,15-15V75c0-8.284-6.716-15-15-15h-45V15 
+                                c0-8.284-6.716-15-15-15H35c-8.284,0-15,6.716-15,15v240C20,263.284,26.716,270,35,270z M280,300H110V90h170V300z M50,30h170v30H95
+                                c-8.284,0-15,6.716-15,15v165H50V30z" />
+                            <path
+                                d="M155,120c-8.284,0-15,6.716-15,15s6.716,15,15,15h80c8.284,0,15-6.716,15-15s-6.716-15-15-15H155z" />
+                            <path
+                                d="M235,180h-80c-8.284,0-15,6.716-15,15s6.716,15,15,15h80c8.284,0,15-6.716,15-15S243.284,180,235,180z" />
+                            <path
+                                d="M235,240h-80c-8.284,0-15,6.716-15,15c0,8.284,6.716,15,15,15h80c8.284,0,15-6.716,15-15C250,246.716,243.284,240,235,240z" />
+                        </g>
+                    </svg>
+                </button>
+            </form>
+        </section>
+        <section id="fixes"></section>
+        <code id="raw"></code>
+    </main>
+    <footer>
+        Selecting Model...
+    </footer>
+    <dialog id="spinner-dialog" class="">loading...</dialog>
+</html>

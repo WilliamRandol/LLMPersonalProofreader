@@ -1,0 +1,244 @@
+:root{
+    --background: linear-gradient(45deg, rgba(0,255,255,1) 0%, rgba(255,255,255,1) 50%, rgba(255,0,255,1) 100%);
+    --background-color: #f5f5f5;
+    --text-color: #333;
+    --header-footer-background-color: rgb(0,0,0,.25);
+    --header-footer-text-color: #fff;
+    --input-background-color: #fff;
+    --container-background-color: #dfdfdf;
+    --tab-active-background-color: #efefef;
+    --tab-inactive-background-color: #c5c5c5;
+    --button-background-color: #007bff;
+    --button-background: linear-gradient(45deg, rgba(0,255,255,.5) 0%, rgba(255,255,255,.5) 50%, rgba(255,0,255,.5) 100%);
+    --button-hover-background-color: #0069d9;
+    --button-hover-background: linear-gradient(45deg, rgba(0,255,255,1) 0%, rgba(255,255,255,1) 50%, rgba(255,0,255,1) 100%);
+    --button-active-background-color: #0051a8;
+    --button-active-background: linear-gradient(45deg, rgba(0,255,255,.25) 0%, rgba(255,255,255,1) 50%, rgba(255,0,255,.25) 100%);
+    --button-text-color: var(--text-color);
+    --border: .1rem solid #c5c5c5;
+    --border-radius: 0.25rem;
+    --shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+    background: var(--background-color);
+    background: var(--background);
+    background-position: top left;
+    background-size: 100vw 100vh;
+    background-attachment: fixed;
+    color: var(--text-color);
+    display: grid;
+    grid-template-rows: min-content 1fr min-content;
+    height: 100vh;
+    position: relative;
+}
+
+header {
+    padding: 2rem 0;
+    background: var(--header-footer-background-color);
+    color: var(--header-footer-text-color);
+}
+
+h1 {
+    text-align: center;
+    font-size: 2rem;
+}
+
+main {
+    width: 90vw;
+    max-width: 40rem;
+    margin: 2rem auto;
+    background: var(--container-background-color);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+}
+
+section {
+    margin-bottom: 1rem;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: .5rem;
+    font-weight: bold;
+}
+
+input, textarea {
+    margin-top: .5rem;
+    padding: 1rem;
+    color: var(--text-color);
+    border: var(--border);
+    border-radius: var(--border-radius);
+    background-color: var(--input-background-color);
+    font-size: 1.25rem;
+}
+
+button, input[type="submit"] {
+    background: var(--button-background-color);
+    background: var(--button-background);
+    color: var(--button-text-color);
+    border: var(--border);
+    border-radius: var(--border-radius);
+    margin-top: .5rem;
+    padding: 1rem;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover, input[type="submit"]:hover {
+    background: var(--button-hover-background-color);
+    background: var(--button-hover-background);
+}
+
+button:active, input[type="submit"]:active {
+    background: var(--button-active-background-color);
+    background: var(--button-active-background);
+}
+
+button svg {
+    fill: currentColor;
+}
+
+input:disabled {
+    opacity: .5;
+}
+
+dialog {
+    width: 90vw;
+    max-width: 45rem;
+    margin: 2rem auto;
+    background: var(--container-background-color);
+    color: var(--text-color);
+    padding: 20px;
+    border: 1px solid var(--secondary-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    margin: 50vh auto 0;
+    transform: translatey(-50%);
+}
+
+dialog::backdrop {
+    background: rgba(128, 128, 128, 0.5);
+}
+
+#spinner-dialog {
+    text-align: center;
+    margin-top: 0;
+    transform: translatey(0);
+}
+
+#spinner-dialog[open] {
+    animation-name: show-spinner;
+    animation-duration: .5s;
+    animation-fill-mode: forwards;
+}
+
+#spinner-dialog.hide {
+    animation-name: hide-spinner;
+    animation-duration: .5s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes show-spinner {
+    from {transform: translatey(-100%);}
+    to {transform: translatey(0);}
+}
+
+@keyframes hide-spinner {
+    from {transform: translatey(0);}
+    to {transform: translatey(-100%);}
+}
+
+footer {
+    width: 100%;
+    padding: 1rem 0;
+    background: var(--header-footer-background-color);
+    color: var(--header-footer-text-color);
+    text-align: center;
+}
+
+menu.tabs {
+    margin: 2rem 0 0;
+}
+menu.tabs ul {
+    display: flex;
+    list-style: none;
+    margin-bottom: 1rem;
+}
+
+menu.tabs ul li {
+    margin-right: 1rem;
+}
+
+menu.tabs ul li a {
+    padding: 1rem;
+    border: var(--border);
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+    text-decoration: none;
+    color: var(--text-color);
+    border-bottom: 0;
+    background-color: var(--tab-inactive-background-color);
+}
+
+menu.tabs ul li a.active {
+    background: var(--tab-active-background-color);
+    font-weight: bold;
+}
+
+menu.tabs ul li a:hover {
+    background: var(--tab-active-background-color); 
+}
+
+menu.tabs ul li a.active:hover {
+    background: var(--tab-active-background-color);
+}
+
+.tab-content {
+    display: none;
+    margin-top: -.1rem;
+    border: var(--border);
+    border-radius: 0 var(--border-radius) var(--border-radius) var(--border-radius);
+    padding: 2rem;
+}
+
+.tab-content.active {
+    display: block;
+    background-color: var(--tab-active-background-color);
+}
+
+@media (prefers-color-scheme: dark) {
+
+    :root {
+        --background: linear-gradient(45deg, rgba(0,255,255,1) 0%, rgba(0,0,0,1) 50%, rgba(255,0,255,1) 100%);
+        --background-color: #333;
+        --text-color: #f5f5f5;
+        --header-footer-text-color: #fff;
+        --input-background-color: #444;
+        --container-background-color: #444;
+        --tab-active-background-color: #555;
+        --tab-inactive-background-color: #666;
+        --button-background-color: #014288;
+        --button-background: linear-gradient(45deg, rgba(0,255,255,.5) 0%, rgba(0,0,0,.5) 50%, rgba(255,0,255,.5) 100%);
+        --button-hover-background-color:#0069d9;
+        --button-hover-background: linear-gradient(45deg, rgba(0,255,255,1) 0%, rgba(0,0,0,1) 50%, rgba(255,0,255,1) 100%);
+        --button-active-background-color: #0051a8;
+        --button-active-background: linear-gradient(45deg, rgba(0,255,255,.25) 0%, rgba(0,0,0,1) 50%, rgba(255,0,255,.25) 100%);
+        --button-text-color: #fff;
+        --border: .1rem solid #666;
+        --border-radius: 0.25rem;
+        --shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+    }
+}
