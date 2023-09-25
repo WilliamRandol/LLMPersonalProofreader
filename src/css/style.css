@@ -146,6 +146,27 @@ dialog::backdrop {
     background: rgba(128, 128, 128, 0.5);
 }
 
+p {
+    margin: 1rem;
+}
+
+hr {
+    margin: 1rem 0;
+}
+
+a {
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a:active {
+    color: var(--button-active-background-color);
+}
+
 #spinner-dialog {
     text-align: center;
     margin-top: 0;

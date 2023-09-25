@@ -143,6 +143,14 @@ window.addEventListener('load', async () => {
                 const header = document.createElement('h1');
                 header.innerText = 'Add your OpenAI API Key';
 
+                const info = document.createElement('p');
+                info.classList.add('info');
+                info.innerHTML = `You can find your API key in your OpenAI dashboard.<br>
+                Click on your name in the top right corner and select "My Account" from the dropdown.<br>
+                Then click on "API Keys" in the left sidebar.<br><br>
+                If you don\'t have an API key yet, you can create one there.<br><br>
+                You can find more information in the <a href="https://beta.openai.com/docs/developer-quickstart/your-api-keys" target="_blank">OpenAI documentation</a>.`;
+
                 const label = document.createElement('label');
                 label.innerText = 'API Key';
                 label.for = 'api-key-input';
@@ -155,6 +163,7 @@ window.addEventListener('load', async () => {
                 submit.innerText = 'Save';
 
                 form.appendChild(header);
+                form.appendChild(info);
                 form.appendChild(label);
                 form.appendChild(input);
                 form.appendChild(submit);
