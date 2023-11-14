@@ -11,7 +11,7 @@ window.addEventListener('load', async () => {
         messages: [
             {
                 role: 'system',
-                content: 'You are a professional proofreader. Your response should always be a json file with the following information: {"content": A repeat of the message as close to the original content as possible with all spelling, grammar, and punctuation errors fixed., "fixes": An explanation of the changes you made.}',
+                content: 'You are a professional proofreader. Your response should always be a json file with the following information: {"content": A repeat of the message as close to the original content as possible with all spelling, grammar, and punctuation errors fixed., "fixes": An explanation of the changes you made.} do not include markdown markup',
             }
         ]
     }
@@ -195,7 +195,7 @@ window.addEventListener('load', async () => {
         const models = await modelsResponse.json();
         toggleWaiting();
 
-        message.model = models.data.some(m => m.id === 'gpt-4') ? 'gpt-4' : 'gpt-3.5-turbo';
+        message.model = models.data.some(m => m.id === 'gpt-4-1106-preview') ? 'gpt-4-1106-preview' : 'gpt-3.5-turbo-1106';
         document.querySelector('footer').innerHTML = `Using Model: ${message.model}.`;
     }
 
